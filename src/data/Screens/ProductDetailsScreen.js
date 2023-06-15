@@ -1,9 +1,14 @@
-import { StyleSheet, View, Text, Image, FlatList, ScrollView, useWindowDimensions } from 'react-native'
-import products from '../../data/products'
+import { StyleSheet, View, Text, Image, FlatList, ScrollView, useWindowDimensions, TouchableOpacity } from 'react-native'
 
+import products from '../../data/products'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 const ProductDetailsScreen = () => {
   const product = products[0]
   const { width } = useWindowDimensions()
+
+  const addToCard = () => {
+    console.warn('Item added to Cart')
+  }
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -21,9 +26,10 @@ const ProductDetailsScreen = () => {
           <Text style={styles.description}>{product.description}</Text>
         </View>
       </ScrollView>
-      <View>
-        <Text>Add to card</Text>
-      </View>
+      <TouchableOpacity style={styles.btn} onPress={addToCard}>
+        <Text style={styles.btnText}>Add to cart</Text>
+        <MaterialCommunityIcons name="cart-plus" size={24} color="#fff" />
+      </TouchableOpacity>
     </View>
   )
 }
@@ -32,6 +38,7 @@ const styles = StyleSheet.create({
   },
   details__container: {
     padding: 20,
+    paddingBottom: 100
   },
   name: {
     fontSize: 34,
@@ -51,5 +58,25 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     color: "#536b78"
   },
+  btn: {
+    flexDirection: "row",
+    alignItems: "center",
+    alignSelf: "center",
+    justifyContent: "center",
+    position: "absolute",
+    bottom: 30,
+    backgroundColor: "#000",
+    width: '90%',
+    borderRadius: 20,
+    padding: 10
+  },
+  btnText: {
+    alignItems: "center",
+    justifyContent: "center",
+    color: "#fff",
+    fontSize: 24,
+    fontWeight: 600,
+    paddingRight: 5
+  }
 })
 export default ProductDetailsScreen
