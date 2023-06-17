@@ -27,7 +27,7 @@ A timeless rubber sole combines with a soft sockliner and encapsulated Nike Air 
   },
   {
     id: "2",
-    image: "https://o.remove.bg/downloads/3c416c01-6058-49c7-8447-478c4eafd173/nike2_1-removebg-preview.png",
+    image: "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/nike/nike2.png",
     images: [
       "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/nike/nike2.png",
       "https://o.remove.bg/downloads/3c416c01-6058-49c7-8447-478c4eafd173/nike2_1-removebg-preview.png",

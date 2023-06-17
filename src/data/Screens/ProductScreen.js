@@ -1,19 +1,19 @@
 import { View, FlatList, StyleSheet, Image, Pressable } from 'react-native'
 import products from '../../data/products'
-
+import { useNavigation } from '@react-navigation/native'
 
 const ProductScreen = () => {
+  const navigation = useNavigation()
   return (
-    <Pressable>
-      <FlatList
-        data={products}
-        renderItem={({ item }) => (
-          <View style={styles.imgContainer}>
-            <Image source={{ uri: item.image }} style={styles.image} />
-          </View>)}
-        numColumns={2}
-        showsVerticalScrollIndicator={false} />
-    </Pressable>
+
+    <FlatList
+      data={products}
+      renderItem={({ item }) => (
+        <Pressable style={styles.imgContainer} onPress={() => navigation.navigate('Product Details')}>
+          <Image source={{ uri: item.image }} style={styles.image} />
+        </Pressable>)}
+      numColumns={2}
+      showsVerticalScrollIndicator={false} />
   )
 }
 const styles = StyleSheet.create({
