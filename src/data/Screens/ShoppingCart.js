@@ -1,21 +1,19 @@
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native'
-import cart from '../cart'
 import CartListItem from '../../components/CartListItem'
 import ShoppingCartTotals from '../../components/ShoppingCartTotals'
+import { useSelector } from 'react-redux'
 
 
 const ShoppingCart = () => {
-  const CheckOut = () => {
-    console.warn('Check out')
-  }
+  const cartItems = useSelector((state) => state.cart.items)
   return (
     <View style={styles.empty}>
       <FlatList
-        data={cart}
+        data={cartItems}
         renderItem={({ item }) => <CartListItem cartItem={item} />}
         ListFooterComponent={() => <ShoppingCartTotals />}
       />
-      <TouchableOpacity style={styles.btn} onPress={CheckOut}>
+      <TouchableOpacity style={styles.btn}>
         <Text style={styles.btnText}>Check Out</Text>
       </TouchableOpacity>
     </View>

@@ -8,19 +8,21 @@ import {
   useWindowDimensions,
   TouchableOpacity
 } from 'react-native'
-import products from '../../data/products'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { cartSlice } from '../../store/cartSlice';
+
 
 
 
 
 const ProductDetailsScreen = () => {
   const product = useSelector((state) => state.products.selectedProduct)
+  const dispatch = useDispatch();
   const { width } = useWindowDimensions()
 
   const addToCard = () => {
-    console.warn('Item added to Cart')
+    dispatch(cartSlice.actions.addCartItem({ product }))
   }
   return (
     <View style={styles.container}>
