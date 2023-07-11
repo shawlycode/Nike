@@ -15,7 +15,6 @@ import { cartSlice } from '../../store/cartSlice';
 
 
 
-
 const ProductDetailsScreen = () => {
   const product = useSelector((state) => state.products.selectedProduct)
   const dispatch = useDispatch();
